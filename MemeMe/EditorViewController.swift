@@ -15,6 +15,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var _imagePickerView: UIImageView!
     @IBOutlet weak var _cameraButton: UIBarButtonItem!
     @IBOutlet weak var _imagePickerButton: UIBarButtonItem!
+    @IBOutlet weak var _topText: UITextField!
+    @IBOutlet weak var _bottomText: UITextField!
     
     
     override func viewDidLoad() {
@@ -28,12 +30,26 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - UI
+    // MARK: - UILayout
     
     //Disable Camera Button in toolbar in case there is no Camera supported by the current used device
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         _cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    
+        // text attributes
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            //NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
+            NSStrokeWidthAttributeName : -4.0,
+        ]
+        
+        _topText.defaultTextAttributes = memeTextAttributes
+        _bottomText.defaultTextAttributes = memeTextAttributes
+        
+        
+    
     }
     
     // MARK: - Actions

@@ -13,6 +13,7 @@
 		E4E983A41B66A802005FFE8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E983A21B66A802005FFE8B /* LaunchScreen.xib */; };
 		E4E983B01B66A802005FFE8B /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E983AF1B66A802005FFE8B /* MemeMeTests.swift */; };
 		E4E983BA1B66B7B1005FFE8B /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E983B91B66B7B1005FFE8B /* EditorViewController.swift */; };
+		E4E983BC1B6756A3005FFE8B /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E983BB1B6756A3005FFE8B /* Impact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		E4E983AE1B66A802005FFE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4E983AF1B66A802005FFE8B /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
 		E4E983B91B66B7B1005FFE8B /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		E4E983BB1B6756A3005FFE8B /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				E4E983B91B66B7B1005FFE8B /* EditorViewController.swift */,
 				E4E983A01B66A802005FFE8B /* Images.xcassets */,
 				E4E983A21B66A802005FFE8B /* LaunchScreen.xib */,
+				E4E983BB1B6756A3005FFE8B /* Impact.ttf */,
 				E4E983971B66A802005FFE8B /* Supporting Files */,
 			);
 			path = MemeMe;
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E983BC1B6756A3005FFE8B /* Impact.ttf in Resources */,
 				E4E9839F1B66A802005FFE8B /* Main.storyboard in Resources */,
 				E4E983A41B66A802005FFE8B /* LaunchScreen.xib in Resources */,
 				E4E983A11B66A802005FFE8B /* Images.xcassets in Resources */,
