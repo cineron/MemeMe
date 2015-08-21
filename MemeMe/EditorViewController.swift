@@ -32,19 +32,21 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // MARK: - UILayout
     
-    //Disable Camera Button in toolbar in case there is no Camera supported by the current used device
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Disable Camera Button in toolbar in case there is no Camera supported by the current used device
         _cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     
         // text attributes
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
-            //NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
+            NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
             NSStrokeWidthAttributeName : -4.0,
         ]
         
+        // set the default text properties
         _topText.defaultTextAttributes = memeTextAttributes
         _bottomText.defaultTextAttributes = memeTextAttributes
         
