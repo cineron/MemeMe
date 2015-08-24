@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MemeMe
 //
-//  Created by Ron Wilson on 7/27/15.
+//  Created by Cineron on 7/27/15.
 //  Copyright (c) 2015 Cineron. All rights reserved.
 //
 
@@ -12,7 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // MARK: Shared Model Data
+    var memes = [Meme]()
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
