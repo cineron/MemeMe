@@ -50,8 +50,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         _topText.defaultTextAttributes = memeTextAttributes
         _bottomText.defaultTextAttributes = memeTextAttributes
         
-        
-    
     }
     
     // MARK: - Actions
