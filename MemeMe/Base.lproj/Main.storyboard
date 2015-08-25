@@ -143,7 +143,11 @@
                                 <items>
                                     <navigationItem title="Create a meme!" id="U3c-9n-gtD">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="CEm-gC-GD7"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="A3J-um-GvD"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="A3J-um-GvD">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="fcI-fH-Hbb" id="MFk-ao-blM"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
