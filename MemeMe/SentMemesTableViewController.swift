@@ -1,5 +1,5 @@
 //
-//  SentMemesTableTableViewController.swift
+//  SentMemesTableViewController.swift
 //  MemeMe
 //
 //  Created by Cineron on 8/24/15.
@@ -10,10 +10,17 @@ import UIKit
 
 
 
-class SentMemesTableTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class SentMemesTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Global variables
     var memes: [Meme]!
+    
+    
+    @IBAction func newMeme(sender: AnyObject) {
+        //segue to the editorVC
+        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") as! UIViewController
+        self.presentViewController(memeEditor, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -28,12 +35,16 @@ class SentMemesTableTableViewController: UITableViewController, UITableViewDeleg
     
     // MARK: - Using Shared Model
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        //retrieve memes from the AppDelegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        appDelegate.memes = memes
+        memes = appDelegate.memes
+        
+        // reload the view
+        tableView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

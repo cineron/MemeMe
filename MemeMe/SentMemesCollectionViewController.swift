@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Foundation
 
 let reuseIdentifier = "Cell"
 
 
 
-class SentMemesCollectionViewController: UICollectionViewController {
+class SentMemesCollectionViewController: UICollectionViewController, UICollectionViewDataSource {
     
     // MARK: - Global variables
     var memes: [Meme]!
+    
+    // MARK: Outlets
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +32,27 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-    }
+        
+        // MARK: - Flow Control
+/*        let space: CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+*/    }
    
     // MARK: - Using Shared Model
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        //retrieve memes from the AppDelegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        appDelegate.memes = memes
+        memes = appDelegate.memes
         
+        // reload the view
+        collectionView?.reloadData()
     }
 
     
@@ -56,6 +71,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func newMeme(sender: AnyObject) {
+        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") as! UIViewController
+        self.presentViewController(memeEditor, animated: true, completion: nil)
+    }
 
     // MARK: UICollectionViewDataSource
 

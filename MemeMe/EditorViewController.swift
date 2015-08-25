@@ -2,7 +2,7 @@
 //  EditorViewController.swift
 //  MemeMe
 //
-//  Created by Ron Wilson on 7/27/15.
+//  Created by Cineron on 7/27/15.
 //  Copyright (c) 2015 Cineron. All rights reserved.
 //
 
@@ -35,7 +35,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Disable Camera Button in toolbar in case there is no Camera supported by the current used device
+        //Disable Camera Button in toolbar in case there is no Camera supported by the current device
         _cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     
         // text attributes
@@ -86,6 +86,47 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func save() {
+        //Create the meme
+        var meme = Meme(
+            topText: _topText.text!,
+            bottomText: _bottomText.text,
+            originalImage: _imagePickerView.image!,
+            memeImage: memeImage()
+        )
+
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+    }
+    
+    func memeImage() -> UIImage
+    {
+        //hide the navigationitems before taking a "snapshot"
+    //    bottomToolbar.hidden = true
+     //   navigationBar.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //"snapshot" taken, time to bring back the navigationitems
+   //     bottomToolbar.hidden = false
+   //     navigationBar.hidden = false
+        
+        return memedImage
+    }
+    
+    
+
+    
     
     
     
