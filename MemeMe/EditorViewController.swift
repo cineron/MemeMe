@@ -23,6 +23,17 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // text attributes
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
+            NSStrokeWidthAttributeName : -4.0,
+        ]
+        
+        // set the default text properties
+        _topText.defaultTextAttributes = memeTextAttributes
+        _bottomText.defaultTextAttributes = memeTextAttributes
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,20 +46,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Disable Camera Button in toolbar in case there is no Camera supported by the current device
+        //Disable Camera Button from "What about the camera?" section in the classroom.
         _cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-    
-        // text attributes
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
-            NSStrokeWidthAttributeName : -4.0,
-        ]
-        
-        // set the default text properties
-        _topText.defaultTextAttributes = memeTextAttributes
-        _bottomText.defaultTextAttributes = memeTextAttributes
         
     }
     
@@ -75,10 +74,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-//    func pop(sender: UIBarButtonItem) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
     
     // image via delegate
 
