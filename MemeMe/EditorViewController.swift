@@ -31,6 +31,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             NSStrokeWidthAttributeName : -4.0,
         ]
         
+        //TODO: how do I set the textalignment programmatically?
+
+        
         // set the default text properties
         _topText.defaultTextAttributes = memeTextAttributes
         _bottomText.defaultTextAttributes = memeTextAttributes
