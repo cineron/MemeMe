@@ -34,7 +34,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         //TODO: how do I set the textalignment programmatically?
 
         
-        // set the default text properties
+        // set the default text properties referencing dictionary above
         _topText.defaultTextAttributes = memeTextAttributes
         _bottomText.defaultTextAttributes = memeTextAttributes
     }
@@ -52,7 +52,19 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         //Disable Camera Button from "What about the camera?" section in the classroom.
         _cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
+        // Subscribe to keyboard notifications to allow the view to raise when necessary
+        self.subscribeToKeyboardNotifications()
+        
     }
+    
+    // Add built-in func for use in Notification unsubscribe
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // unsubscribe
+        self.unsubscribeFromKeyboardNotifications()
+    }
+    
     
     // MARK: - Actions
     
@@ -128,6 +140,42 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
     
+    // Get Keyboard height
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+    
+    // Move the view when the keyboard covers the text field
+    func keyboardWillShow(notification: NSNotification) {
+        self.view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    // subscribe: Watch for keyboard use notification
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    // unsubscribe: Don't watch for Keyboard use anymore
+    func unsubscribeFromKeyboardNotifications () {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
+    // move the keyboard back
+    func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y += getKeyboardHeight(notification)
+    }
+    
+    // clear text when typing starts
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
+    
+    
+    
+
     
 
     

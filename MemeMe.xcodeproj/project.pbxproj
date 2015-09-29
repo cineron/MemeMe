@@ -87,6 +87,7 @@
 		E4E983961B66A802005FFE8B /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				E4E7BF7E1B8C337D0025001B /* MemeDetailViewController.swift */,
 				E4E983A21B66A802005FFE8B /* LaunchScreen.xib */,
 				E4E9839D1B66A802005FFE8B /* Main.storyboard */,
 				E4E983991B66A802005FFE8B /* AppDelegate.swift */,
@@ -94,7 +95,6 @@
 				E4E983B91B66B7B1005FFE8B /* EditorViewController.swift */,
 				E4E7BF781B8B03BB0025001B /* SentMemesCollectionViewController.swift */,
 				E4E7BF761B8B03940025001B /* SentMemesTableViewController.swift */,
-				E4E7BF7E1B8C337D0025001B /* MemeDetailViewController.swift */,
 				E4E983A01B66A802005FFE8B /* Images.xcassets */,
 				E4E983971B66A802005FFE8B /* Supporting Files */,
 			);
