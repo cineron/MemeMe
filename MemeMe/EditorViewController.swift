@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     // MARK: - Outlets
     
@@ -37,6 +37,10 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // set the default text properties referencing dictionary above
         _topText.defaultTextAttributes = memeTextAttributes
         _bottomText.defaultTextAttributes = memeTextAttributes
+        
+        // set textfield delegates. e.g. keyboard can be dismissed.
+        _topText.delegate = self
+        _bottomText.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -165,7 +169,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // move the keyboard back
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        self.view.frame.origin.y = 0
     }
     
     // clear text when typing starts
@@ -173,6 +177,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.text = ""
     }
     
+    // dismiss keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true;
+    }
+
     
     
 
