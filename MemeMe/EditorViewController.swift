@@ -94,6 +94,17 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func share(sender: AnyObject) {
+        _topText.resignFirstResponder()
+        _bottomText.resignFirstResponder()
+        let Meme = memeImage()
+        if let meme = memeImage() {
+            let activityVC = UIActivityViewController(activityItems: [meme.memeImage], applicationActivities: nil);
+            self.presentViewController(activityVC, animated:true, completion: nil)
+            }
+    }
+    
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

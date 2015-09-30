@@ -11,10 +11,10 @@ import UIKit
 
 struct Meme {
     
-    var topText : String
-    var bottomText : String
-    var originalImage : UIImage
-    var memeImage : UIImage
+    var topText :String
+    var bottomText :String
+    var originalImage :UIImage
+    var memeImage :UIImage
     
     init (topText : String, bottomText : String, originalImage : UIImage, memeImage : UIImage){
         self.bottomText = bottomText
@@ -26,7 +26,7 @@ struct Meme {
 }
 
 
-//struct MMMeme {
+//struct Meme {
 //    /// The image used to create the meme, without the text
 //    var original :UIImage
 //    /// The "memed" image
