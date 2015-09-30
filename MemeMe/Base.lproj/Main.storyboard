@@ -187,6 +187,7 @@
                     <connections>
                         <outlet property="_bottomText" destination="uzA-mm-LfO" id="LNg-JK-xIz"/>
                         <outlet property="_cameraButton" destination="K51-I5-qDZ" id="fZY-L0-07d"/>
+                        <outlet property="_cancel" destination="A3J-um-GvD" id="MA8-C2-War"/>
                         <outlet property="_imagePickerButton" destination="9lW-E7-B4i" id="zOY-vW-MGR"/>
                         <outlet property="_imagePickerView" destination="nSl-5H-NcN" id="RlD-d3-rXj"/>
                         <outlet property="_topText" destination="QjQ-if-fnd" id="4Zb-to-XOt"/>

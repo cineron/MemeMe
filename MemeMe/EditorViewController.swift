@@ -17,6 +17,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var _imagePickerButton: UIBarButtonItem!
     @IBOutlet weak var _topText: UITextField!
     @IBOutlet weak var _bottomText: UITextField!
+    @IBOutlet weak var _cancel: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -97,11 +98,14 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func share(sender: AnyObject) {
         _topText.resignFirstResponder()
         _bottomText.resignFirstResponder()
-        let Meme = memeImage()
-        if let meme = memeImage() {
+        //let newmemedImage: Meme? = memeImage()
+        let newmemedImage = memeImage() as? Meme
+        if let meme = newmemedImage {
             let activityVC = UIActivityViewController(activityItems: [meme.memeImage], applicationActivities: nil);
             self.presentViewController(activityVC, animated:true, completion: nil)
-            }
+            
+            _cancel.enabled = true
+            
     }
     
     
