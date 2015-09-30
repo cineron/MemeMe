@@ -59,6 +59,10 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
         
+        // set textField alignment
+        _topText.textAlignment = .Center
+        _bottomText.textAlignment = .Center
+        
     }
     
     // Add built-in func for use in Notification unsubscribe
