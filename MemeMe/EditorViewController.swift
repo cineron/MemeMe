@@ -105,7 +105,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.presentViewController(activityVC, animated:true, completion: nil)
             
             _cancel.enabled = true
-            
+            }
     }
     
     
