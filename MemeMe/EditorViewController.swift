@@ -151,10 +151,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return keyboardSize.CGRectValue().height
     }
     
-    // Move the view when the keyboard covers the text field
+    // Move the view when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
+        if _bottomText.isFirstResponder() {
         self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
+
     
     // subscribe: Watch for keyboard use notification
     func subscribeToKeyboardNotifications() {
