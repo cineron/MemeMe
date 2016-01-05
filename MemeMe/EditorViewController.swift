@@ -116,7 +116,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // image via delegate
 
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             _imagePickerView.image = image
         }else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {

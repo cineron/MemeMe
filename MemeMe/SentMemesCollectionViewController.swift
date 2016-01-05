@@ -73,7 +73,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     */
     
     @IBAction func newMeme(sender: AnyObject) {
-        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") as! UIViewController
+        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") 
         self.presentViewController(memeEditor, animated: true, completion: nil)
     }
 
@@ -91,7 +91,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) 
     
         // Configure the cell
     

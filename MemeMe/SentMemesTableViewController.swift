@@ -18,7 +18,7 @@ class SentMemesTableViewController: UITableViewController, UITableViewDelegate, 
     
     @IBAction func newMeme(sender: AnyObject) {
         //segue to the editorVC
-        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") as! UIViewController
+        let memeEditor = storyboard!.instantiateViewControllerWithIdentifier("editorVC") 
         self.presentViewController(memeEditor, animated: true, completion: nil)
     }
     
